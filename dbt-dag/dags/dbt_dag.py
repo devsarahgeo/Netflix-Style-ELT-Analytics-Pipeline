@@ -25,4 +25,3 @@ dbt_snowflake_dag = DbtDag(
     catchup=False,
     dag_id="dbt_dag",
 )
-
