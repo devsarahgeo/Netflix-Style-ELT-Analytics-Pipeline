@@ -1,11 +1,65 @@
-# DBT-Snowflake-Airflow-Movie-dataset
-DBT Snowflake Main Code : dbt-dag/dags/movie
+# Netflix style ELT Analytics Pipeline
+---
+💼 **Executive Summary** 
+This Netflix style project replicates a real-world enterprise data workflow, transforming raw data into clean, modeled, and validated analytical outputs to support data-driven decision-making.This project addresses the end-to-end workflow from **raw data in Snowflake** to **analysis-ready tables** via **dbt**models orchestrated with **Airflow**.
 
-This repository demonstrates a **data engineering workflow** using **dbt**, **Snowflake**, and **Airflow**, applied to the **Movie dataset**.
+--- 
+
+💼 **Business Problem** 
+Enterprises face the challenge of turning raw data into structured, trustworthy, and reusable analytical outputs. Without automated pipelines, data analysts and product teams spend excessive time cleaning, validating, and modeling data manually, risking errors and delays. This project addresses that challenge by implementing an end-to-end ELT workflow, ensuring clean, consistent, and actionable datasets ready for analytics and BI.
 
 ---
-💼 **Business Problem**  
-Analysts and data engineers often need reliable pipelines to transform raw datasets into **analysis-ready tables**. This Movie Streaming dataset project automates data ingestion, ensures data quality, and enable insights without manual intervention. This project addresses the end-to-end workflow from **raw data in Snowflake** to **analysis-ready tables** via dbt models orchestrated with Airflow.
+
+## ❓ Analysis Questions 
+
+#### User Behavior Analysis
+
+Which users are the most active based on ratings or reviews?
+
+Are there patterns in user activity by time of day or day of week?
+
+How do user ratings vary by genre or movie release year?
+
+2️⃣ Content Insights
+
+Which genres are most popular overall and by user segment?
+
+What is the distribution of ratings per movie? Are there highly polarized movies?
+
+Identify movies with high engagement but low ratings – potential for improvement or recommendation tuning.
+
+3️⃣ Recommendation Engine Prep
+
+Which users have similar rating patterns? (clustering / collaborative filtering)
+
+Identify movies with strong co-rating patterns (for “Users also liked…” features).
+
+Are there gaps in content coverage for specific genres or user segments?
+
+4️⃣ Temporal Trends
+
+How have movie ratings evolved over time?
+
+Are there seasonal trends in user engagement or ratings?
+
+Identify periods with unusually high or low activity – could link to new content releases or events.
+
+5️⃣ System/Operational Metrics
+
+Are there missing or incomplete data points that affect analysis?
+
+How consistent are ratings across different users and movies?
+
+Which tables or transformations consume the most processing time (dbt/Snowflake optimization insight)?
+
+6️⃣ Business-Oriented Questions
+
+What movies would you recommend promoting based on engagement and ratings?
+
+Which genres or movies are underrepresented but show potential for growth?
+
+Can you segment users for targeted content recommendations?
+---
 
 ⚙️ **SYSTEM DESIGN**  
 <img width="1418" height="919" alt="DBT Architecture drawio" src="https://github.com/user-attachments/assets/4fb98f47-54c0-4494-af79-ad74ccaa78fa" />
