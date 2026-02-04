@@ -46,7 +46,7 @@ How have movie ratings evolved over time?
 🧠 **Skills & Tech Stack**  
 - **Visual Studio Code** : Central development environment
 - **Languages**: SQL
-- **Tools**: dbt (models, seeds, tests), Airflow DAGs, Snowflake (warehouse, database, schemas)  
+- **Tools**: dbt (models, seeds, tests), Airflow DAGs, Snowflake (data warehouse, database, schemas), Amazon S3(Data Lake to store raw data)
 - **Concepts**: ELT pipelines, data modeling, orchestration
 - **Visualization**: Tableau
 
@@ -56,6 +56,7 @@ How have movie ratings evolved over time?
 
 <h3>1. Dataset Used:</h3> 
 Movielens Dataset - https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/](https://grouplens.org/datasets/movielens/20m/
+Over 20m ratings, 27k movies data
 
 <h3>2. System Design:</h3>
 <img width="1418" height="919" alt="DBT Architecture drawio" src="https://github.com/user-attachments/assets/4fb98f47-54c0-4494-af79-ad74ccaa78fa" />
@@ -67,27 +68,24 @@ Movielens Dataset - https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/
 <img width="1428" height="755" alt="Screenshot 2026-02-03 at 6 51 17 PM" src="https://github.com/user-attachments/assets/dbc0f444-4bf3-4a47-847d-5828fd520033" />
 
 1. **Data Ingestion & Loading**  
-   - Loaded Movie CSV datasets into Snowflake  
+   - Loaded Movie CSV datasets from Amazon s3 into Snowflake  
    - Configured dbt seeds for small reference tables
-   - Used Airflow DAGs to automate dbt runs on a schedule
 <img width="1382" height="1010" alt="Screenshot 2025-12-19 at 12 26 53 PM" src="https://github.com/user-attachments/assets/85edcc9f-a784-4941-b083-080c04f8b09e" />
 
 2. **Data Transformation with dbt**  
-   - Created **dimension (`dim`) tables**: movies, users, tags.  
-   - Created **fact (`fct`) tables**: ratings, genome scores.  
-  - **Snapshots**: tracked historical changes in source data to manage slowly changing dimensions.
-<img width="1910" height="835" alt="s (snapshot)- 1" src="https://github.com/user-attachments/assets/009db2cc-d5c5-41e2-a560-d894e2370d2d" />
+   - Following a star schema, created **dimension (`dim`) tables**: movies, users, tags and **fact (`fct`) tables**: ratings, genome scores.  
 
-  - **dbt Model Types**:  
-    - **Table**: full materialization for core tables.  
+  - **dbt Model Types in this Project**:  
+    - **Table**: full materialization for core tables.
+    - **SCD Type 2 Snapshots**: tracked historical changes in source data to manage slowly changing dimensions for user-movie tags
+      <img width="1910" height="835" alt="s (snapshot)- 1" src="https://github.com/user-attachments/assets/009db2cc-d5c5-41e2-a560-d894e2370d2d" />
     - **View**: lightweight transformations for analysis.  
-    - **Incremental**: processed only new or updated records to optimize large datasets.  
+    - **Incremental**: processed only new or updated records to optimize large datasets. Incremental materialization is applied to fact tables like fct_ratings because they continuously receive new transactional data(new ratings), whereas dimension tables are relatively static and can be fully rebuilt without performance issues.
     - **Ephemeral**: temporary models for reusable in-memory transformations.  
     - **Seed**: preloaded static reference datasets.  
     - **Analysis**: queries for exploration and insights.
-<img width="1823" height="880" alt="s- anlaysis" src="https://github.com/user-attachments/assets/ee61e187-bf51-480f-9eba-5f2a94fcc5b6" />
-      
-   - Applied dbt tests to ensure data quality.
+   <img width="1823" height="880" alt="s- anlaysis" src="https://github.com/user-attachments/assets/ee61e187-bf51-480f-9eba-5f2a94fcc5b6" />
+   - Implemented both generic and custom dbt tests to ensure schema validity, data quality, and business logic integrity across tables in Snowflake.
 
 3. **Workflow Orchestration with Airflow**  
    - Scheduled dbt runs daily via Airflow DAGs.
@@ -101,14 +99,66 @@ PowerBI Report Snapshot:
 <img width="1341" height="748" alt="Screenshot 2026-02-03 at 6 48 30 PM" src="https://github.com/user-attachments/assets/83e4235e-1e94-4dc2-bc0a-90be17ca1f60" />
 
 ---
-## 📊 Business Insights & Recommendations
-- Snowflake + dbt pipelines allow analysts to **quickly explore data and generate insights**. 
-- Automated pipelines reduce errors and ensure reproducible metrics for decision-making.  
+## 📊 Business Insights, Impact & Recommendations
+<u>**Key Metrics / Highlights**</u>:
+
+| **Metric**                   | **Highlight**                           |
+| ---------------------------- | --------------------------------------- |
+| **Most active user by rating**| user118205 with 9254 ratings           |
+| **Day users most active**    | Monday                                  |
+| **Hour user most active**    | between 2pm to 3pm                      |
+| **avg rating by yr**         | Highest - 3.8 before 1998  &            |
+| **Popular genres**           | Film Noir, Documentary                  | 
+
+<ul>
+<li> User engagement peaks during mid-day and weekdays, indicating consistent viewing and rating behavior.
+
+Identifying peak engagement periods enables better timing of content releases and marketing campaigns.
+
+Launch targeted campaigns and notifications during peak activity hours and weekdays.
+</li>
+
+<li>
+Film Noir and Documentary genres dominate both ratings volume and average ratings, indicating strong content preference.
+
+Genre-level insights help optimize content acquisition and production strategy.
+
+Promote underperforming genres through curated recommendations.
+</li>
+
+<li>
+   Overall average ratings remain stable over time, suggesting consistent content quality.
+
+   Stable ratings indicate strong user satisfaction, supporting retention strategies.
+
+   Build personalized experiences for highly active users to increase retention.
+   
+</li>
+
+<li>
+   User activity varies by hour and day, revealing clear temporal usage patterns.
+
+   Temporal patterns support capacity planning and targeted notifications, improving platform efficiency.
+
+   Use time-based engagement insights to optimize content drops and user re-engagement strategies.
+   
+</li>
+
+<li>
+   A small group of users contributes disproportionately to total ratings, showing power-user behavior.
+
+   Power users can be leveraged for personalized recommendations and loyalty programs.
+
+   A small group of users contributes disproportionately to total ratings, showing power-user behavior.
+
+</li>
+
+</ul>
 
 🚀 **Outcome**  
 - Hands-on experience with **modern data engineering tools**.  
 - Delivered a **production-ready data pipeline** with automated scheduling, testing, and analytics.  
-- Developed skills in **ELT design, Snowflake optimization, dbt modeling, and Airflow orchestration**.
+- Skills - **ELT design, Snowflake optimization, dbt modeling, and Airflow orchestration**.
 
 ## ⚡ Future Scope - Scalable Implementation 
 - ML Extensions : Content Recommendation System
