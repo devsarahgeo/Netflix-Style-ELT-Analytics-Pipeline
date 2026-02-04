@@ -2,7 +2,7 @@
 ---
 💼 **Executive Summary** 
 
-This Netflix style project replicates a real-world enterprise data workflow, transforming raw data into clean, modeled, and validated analytical outputs to support data-driven decision-making.This project addresses the end-to-end workflow from **raw data in Snowflake** to **analysis-ready tables** via **dbt**models orchestrated with **Airflow**.
+This Netflix style project replicates a real-world enterprise data workflow, transforming raw data into clean, modeled, and validated analytical outputs to support data-driven decision-making.This project addresses the end-to-end workflow from **raw data in Snowflake** to **analysis-ready tables** via **dbt** models orchestrated with **Airflow**.
 
 --- 
 
