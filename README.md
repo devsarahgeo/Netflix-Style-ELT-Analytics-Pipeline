@@ -60,7 +60,7 @@ Movielens Dataset - https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/
 <h3>2. System Design:</h3>
 <img width="1418" height="919" alt="DBT Architecture drawio" src="https://github.com/user-attachments/assets/4fb98f47-54c0-4494-af79-ad74ccaa78fa" />
 
-<h3>3. S3</h3>
+<h3>3. Amazon S3 Snapshot</h3>
 <img width="948" height="762" alt="Screenshot 2026-02-02 at 7 25 26 PM" src="https://github.com/user-attachments/assets/dd3c1338-62f9-40ab-95a0-890a0a0f05cd" />
 
 <h3>4. Data Warehouse - Snowflake:</h3>
