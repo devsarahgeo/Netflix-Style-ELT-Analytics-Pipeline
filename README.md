@@ -1,11 +1,13 @@
 # Netflix style ELT Analytics Pipeline
 ---
 💼 **Executive Summary** 
+
 This Netflix style project replicates a real-world enterprise data workflow, transforming raw data into clean, modeled, and validated analytical outputs to support data-driven decision-making.This project addresses the end-to-end workflow from **raw data in Snowflake** to **analysis-ready tables** via **dbt**models orchestrated with **Airflow**.
 
 --- 
 
 💼 **Business Problem** 
+
 Enterprises face the challenge of turning raw data into structured, trustworthy, and reusable analytical outputs. Without automated pipelines, data analysts and product teams spend excessive time cleaning, validating, and modeling data manually, risking errors and delays. This project addresses that challenge by implementing an end-to-end ELT workflow, ensuring clean, consistent, and actionable datasets ready for analytics and BI.
 
 ---
@@ -18,53 +20,51 @@ Which users are the most active based on ratings or reviews?
 
 Are there patterns in user activity by time of day or day of week?
 
-How do user ratings vary by genre or movie release year?
+How do user ratings vary by genre?
 
-2️⃣ Content Insights
+####  Content Insights
 
 Which genres are most popular overall and by user segment?
 
-What is the distribution of ratings per movie? Are there highly polarized movies?
 
-Identify movies with high engagement but low ratings – potential for improvement or recommendation tuning.
-
-3️⃣ Recommendation Engine Prep
-
-Which users have similar rating patterns? (clustering / collaborative filtering)
-
-Identify movies with strong co-rating patterns (for “Users also liked…” features).
-
-Are there gaps in content coverage for specific genres or user segments?
-
-4️⃣ Temporal Trends
+####  Temporal Trends
 
 How have movie ratings evolved over time?
 
-Are there seasonal trends in user engagement or ratings?
-
-Identify periods with unusually high or low activity – could link to new content releases or events.
-
-5️⃣ System/Operational Metrics
-
-Are there missing or incomplete data points that affect analysis?
-
-How consistent are ratings across different users and movies?
-
-Which tables or transformations consume the most processing time (dbt/Snowflake optimization insight)?
-
-6️⃣ Business-Oriented Questions
-
-What movies would you recommend promoting based on engagement and ratings?
-
-Which genres or movies are underrepresented but show potential for growth?
-
-Can you segment users for targeted content recommendations?
 ---
 
-⚙️ **SYSTEM DESIGN**  
-<img width="1418" height="919" alt="DBT Architecture drawio" src="https://github.com/user-attachments/assets/4fb98f47-54c0-4494-af79-ad74ccaa78fa" />
+## 💻 Git File Structure Explained:
+
+<strong>dbt-dag/dags/netflix</strong> : Main dbt code folder which has the models, tests
+
+<strong>dbt-dag/dags/dbt_dag.py</strong> : This code is DAG definition which will run dbt models in the netflix/ folder against Snowflake.
+
+<strong>final_demo/insights_tableau.pptx</strong> : Final demo/business insights showcase made by using Tableau to visualize.
+
+---
+
+🧠 **Skills & Tech Stack**  
+- **Visual Studio Code** : Central development environment
+- **Languages**: SQL
+- **Tools**: dbt (models, seeds, tests), Airflow DAGs, Snowflake (warehouse, database, schemas)  
+- **Concepts**: ELT pipelines, data modeling, orchestration
+- **Visualization**: Tableau
+
+---
 
 ⚙️ **Methodology**  
+
+<h3>1. Dataset Used:</h3> 
+Movielens Dataset - https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/](https://grouplens.org/datasets/movielens/20m/
+
+<h3>2. System Design:</h3>
+<img width="1418" height="919" alt="DBT Architecture drawio" src="https://github.com/user-attachments/assets/4fb98f47-54c0-4494-af79-ad74ccaa78fa" />
+
+<h3>3. S3</h3>
+<img width="948" height="762" alt="Screenshot 2026-02-02 at 7 25 26 PM" src="https://github.com/user-attachments/assets/dd3c1338-62f9-40ab-95a0-890a0a0f05cd" />
+
+<h3>4. Data Warehouse - Snowflake:</h3>
+<img width="1428" height="755" alt="Screenshot 2026-02-03 at 6 51 17 PM" src="https://github.com/user-attachments/assets/dbc0f444-4bf3-4a47-847d-5828fd520033" />
 
 1. **Data Ingestion & Loading**  
    - Loaded Movie CSV datasets into Snowflake  
@@ -93,15 +93,15 @@ Can you segment users for targeted content recommendations?
    - Scheduled dbt runs daily via Airflow DAGs.
 <img width="965" height="766" alt="Screenshot 2025-12-18 at 10 57 20 PM" src="https://github.com/user-attachments/assets/8a6997eb-e64d-4893-8836-dee1421f7f55" />
 
-🧠 **Skills & Tech Stack**  
-- **Languages & Libraries**: SQL
-- **Tools**: dbt (models, seeds, tests), Airflow DAGs, Snowflake (warehouse, database, schemas)  
-- **Concepts**: ELT pipelines, data modeling, orchestration
+ ---
 
 📈 **Results**
-- Developed a fully automated **ELT pipeline** producing **Snowflake analytics tables** for analysis.
 
-💼 **Business Recommendation**  
+PowerBI Report Snapshot:
+<img width="1341" height="748" alt="Screenshot 2026-02-03 at 6 48 30 PM" src="https://github.com/user-attachments/assets/83e4235e-1e94-4dc2-bc0a-90be17ca1f60" />
+
+---
+## 📊 Business Insights & Recommendations
 - Snowflake + dbt pipelines allow analysts to **quickly explore data and generate insights**. 
 - Automated pipelines reduce errors and ensure reproducible metrics for decision-making.  
 
@@ -109,3 +109,8 @@ Can you segment users for targeted content recommendations?
 - Hands-on experience with **modern data engineering tools**.  
 - Delivered a **production-ready data pipeline** with automated scheduling, testing, and analytics.  
 - Developed skills in **ELT design, Snowflake optimization, dbt modeling, and Airflow orchestration**.
+
+## ⚡ Future Scope - Scalable Implementation 
+- ML Extensions : Content Recommendation System
+
+  
