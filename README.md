@@ -6,7 +6,7 @@ This Netflix style project replicates a real-world enterprise data workflow, tra
 
 --- 
 
-💼 **Business Problem** 
+## 💼 **Business Problem** 
 
 Enterprises face the challenge of turning raw data into structured, trustworthy, and reusable analytical outputs. Without automated pipelines, data analysts and product teams spend excessive time cleaning, validating, and modeling data manually, risking errors and delays. This project addresses that challenge by implementing an end-to-end ELT workflow, ensuring clean, consistent, and actionable datasets ready for analytics and BI.
 
@@ -43,7 +43,7 @@ How have movie ratings evolved over time?
 
 ---
 
-🧠 **Skills & Tech Stack**  
+## 🧠 **Skills & Tech Stack**  
 - **Visual Studio Code** : Central development environment
 - **Languages**: SQL
 - **Tools**: dbt (models, seeds, tests), Airflow DAGs, Snowflake (data warehouse, database, schemas), Amazon S3(Data Lake to store raw data)
@@ -52,7 +52,7 @@ How have movie ratings evolved over time?
 
 ---
 
-⚙️ **Methodology**  
+## ⚙️ **Methodology**  
 
 <h3>1. Dataset Used:</h3> 
 Movielens Dataset - https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/](https://grouplens.org/datasets/movielens/20m/
@@ -93,7 +93,7 @@ Over 20m ratings, 27k movies data
 
  ---
 
-📈 **Results**
+## 📈 **Results**
 
 PowerBI Report Snapshot:
 <img width="1341" height="748" alt="Screenshot 2026-02-03 at 6 48 30 PM" src="https://github.com/user-attachments/assets/83e4235e-1e94-4dc2-bc0a-90be17ca1f60" />
@@ -146,7 +146,7 @@ Promote underperforming genres through curated recommendations.
 
 </ul>
 
-🚀 **Outcome**  
+## 🚀 **Outcome**  
 - Hands-on experience with **modern data engineering tools**.  
 - Delivered a **production-ready data pipeline** with automated scheduling, testing, and analytics.  
 - Skills - **ELT design, Snowflake optimization, dbt modeling, and Airflow orchestration**.
