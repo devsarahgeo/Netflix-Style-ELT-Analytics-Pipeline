@@ -1,0 +1,5 @@
+SELECT *
+FROM {{ ref('fct_ratings') }} f
+LEFT JOIN {{ ref('dim_movies') }} d
+ON f.movie_id = d.movie_id
+WHERE d.movie_id IS NULL
