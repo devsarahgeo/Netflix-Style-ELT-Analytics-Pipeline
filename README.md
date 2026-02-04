@@ -144,15 +144,6 @@ Promote underperforming genres through curated recommendations.
    
 </li>
 
-<li>
-   A small group of users contributes disproportionately to total ratings, showing power-user behavior.
-
-   Power users can be leveraged for personalized recommendations and loyalty programs.
-
-   A small group of users contributes disproportionately to total ratings, showing power-user behavior.
-
-</li>
-
 </ul>
 
 🚀 **Outcome**  
