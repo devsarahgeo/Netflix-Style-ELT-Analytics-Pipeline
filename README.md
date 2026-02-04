@@ -63,7 +63,7 @@ Movielens Dataset - https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/
 <h3>3. Amazon S3 Snapshot</h3>
 <img width="948" height="762" alt="Screenshot 2026-02-02 at 7 25 26 PM" src="https://github.com/user-attachments/assets/dd3c1338-62f9-40ab-95a0-890a0a0f05cd" />
 
-<h3>4. Data Warehouse - Snowflake:</h3>
+<h3>4. Data Warehouse - Snowflake Snapshot:</h3>
 <img width="1428" height="755" alt="Screenshot 2026-02-03 at 6 51 17 PM" src="https://github.com/user-attachments/assets/dbc0f444-4bf3-4a47-847d-5828fd520033" />
 
 1. **Data Ingestion & Loading**  
