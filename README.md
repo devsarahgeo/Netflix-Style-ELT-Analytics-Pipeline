@@ -115,7 +115,7 @@ PowerBI Report Snapshot:
 
 Identifying peak engagement periods enables better timing of content releases and marketing campaigns.
 
-Launch targeted campaigns and notifications during peak activity hours and weekdays.
+<b>Recommendation:</b> Launch targeted campaigns and notifications during peak activity hours and weekdays.
 </li>
 
 <li>
@@ -123,7 +123,7 @@ Film Noir and Documentary genres dominate both ratings volume and average rating
 
 Genre-level insights help optimize content acquisition and production strategy.
 
-Promote underperforming genres through curated recommendations.
+<b>Recommendation:</b> Promote underperforming genres through curated recommendations.
 </li>
 
 <li>
@@ -131,7 +131,7 @@ Promote underperforming genres through curated recommendations.
 
    Stable ratings indicate strong user satisfaction, supporting retention strategies.
 
-   Build personalized experiences for highly active users to increase retention.
+   <b>Recommendation:</b> Build personalized experiences for highly active users to increase retention.
    
 </li>
 
@@ -140,7 +140,7 @@ Promote underperforming genres through curated recommendations.
 
    Temporal patterns support capacity planning and targeted notifications, improving platform efficiency.
 
-   Use time-based engagement insights to optimize content drops and user re-engagement strategies.
+   <b>Recommendation:</b> Use time-based engagement insights to optimize content drops and user re-engagement strategies.
    
 </li>
 
