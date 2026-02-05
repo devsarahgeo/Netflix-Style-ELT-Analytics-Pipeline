@@ -67,12 +67,11 @@ Over 20m ratings, 27k movies data
 <h3>4. Data Warehouse - Snowflake Snapshot:</h3>
 <img width="1428" height="755" alt="Screenshot 2026-02-03 at 6 51 17 PM" src="https://github.com/user-attachments/assets/dbc0f444-4bf3-4a47-847d-5828fd520033" />
 
-1. **Data Ingestion & Loading**  
+1. **Data Ingestion & Loading (Bronze Layer)**  
    - Loaded Movie CSV datasets from Amazon s3 into Snowflake  
-   - Configured dbt seeds for small reference tables
 <img width="1382" height="1010" alt="Screenshot 2025-12-19 at 12 26 53 PM" src="https://github.com/user-attachments/assets/85edcc9f-a784-4941-b083-080c04f8b09e" />
 
-2. **Data Transformation with dbt**  
+2. **Data Transformation with dbt (Silver Layer)**  
    - Following a star schema, created **dimension (`dim`) tables**: movies, users, tags and **fact (`fct`) tables**: ratings, genome scores.  
 
   - **dbt Model Types in this Project**:  
@@ -87,7 +86,9 @@ Over 20m ratings, 27k movies data
    <img width="1823" height="880" alt="s- anlaysis" src="https://github.com/user-attachments/assets/ee61e187-bf51-480f-9eba-5f2a94fcc5b6" />
    - Implemented both generic and custom dbt tests to ensure schema validity, data quality, and business logic integrity across tables in Snowflake.
 
-3. **Workflow Orchestration with Airflow**  
+3.**Data Aggregation (Gold-layer)**: Built data marts in dbt materialized as tables in Snowflake to deliver BI-ready datasets for analytics and decision-making.
+
+4. **Workflow Orchestration with Airflow**  
    - Scheduled dbt runs daily via Airflow DAGs.
 <img width="965" height="766" alt="Screenshot 2025-12-18 at 10 57 20 PM" src="https://github.com/user-attachments/assets/8a6997eb-e64d-4893-8836-dee1421f7f55" />
 
