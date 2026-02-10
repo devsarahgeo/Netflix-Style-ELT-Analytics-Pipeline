@@ -10,4 +10,8 @@ SELECT
 FROM fct_ratings r
 JOIN dim_users u ON r.user_id = u.user_id
 JOIN dim_movies m ON r.movie_id = m.movie_id
-GROUP BY 1,4,5,6
+GROUP BY 
+    u.user_id,
+    EXTRACT(HOUR FROM r.rating_timestamp),
+    EXTRACT(DAYOFWEEK FROM r.rating_timestamp),
+    m.genres
