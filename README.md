@@ -2,13 +2,13 @@
 ---
 ## 💼 **Executive Summary** 
 
-This Netflix style project replicates a real-world movie data workflow, transforming raw data into clean, modeled, and validated analytical outputs to support data-driven decision-making.This project addresses the end-to-end workflow from **raw data in Snowflake** to **analysis-ready tables** via **dbt** models orchestrated with **Airflow**.
+Analyzed Netflix user behavior and content performance to identify engagement patterns, genre preferences, and rating trends over time. Delivered insights to support personalization, content strategy, and data-driven decision-making.
 
 --- 
 
 ## 💼 **Business Problem** 
 
-Enterprises face the challenge of turning raw data into structured, trustworthy, and reusable analytical outputs. Without automated pipelines, data analysts and product teams spend excessive time cleaning, validating, and modeling data manually, risking errors and delays. This project addresses that challenge by implementing an end-to-end ELT workflow, ensuring clean, consistent, and actionable datasets ready for analytics and BI.
+Netflix needs to understand which users drive engagement, what content performs best across segments, and how preferences evolve over time to optimize recommendations and content investment decisions.
 
 ---
 
